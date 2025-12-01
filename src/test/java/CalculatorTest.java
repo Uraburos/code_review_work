@@ -1,36 +1,46 @@
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
 
+    private final Calculator calculator = new Calculator();
+
     @Test
     void add() {
-        Calculator calc = new Calculator();
-        assertEquals(4, calc.add(2, 2));
+        assertEquals(4, calculator.add(2, 2));
+        assertEquals(0, calculator.add(-5, 5));
+        assertEquals(10, calculator.add(7, 3));
     }
 
     @Test
-    void dif() {
-        Calculator calc = new Calculator();
-        assertEquals(1, calc.dif(3, 2));
+    void subtract() {
+        assertEquals(1, calculator.subtract(3, 2));
+        assertEquals(-5, calculator.subtract(5, 10));
+        assertEquals(0, calculator.subtract(7, 7));
     }
 
     @Test
-    void div() {
-        Calculator calc = new Calculator();
-        assertEquals(2, calc.div(6, 3));
+    void divide() {
+        assertEquals(2, calculator.divide(6, 3));
+        assertEquals(5, calculator.divide(10, 2));
+        assertEquals(-3, calculator.divide(9, -3));
     }
 
     @Test
-    void times() {
-        Calculator calc = new Calculator();
-        assertEquals(8, calc.times(4, 2));
+    void divideByZero() {
+        assertThrows(ArithmeticException.class, () -> calculator.divide(10, 0));
+        assertThrows(ArithmeticException.class, () -> calculator.divide(0, 0));
+    }
+
+    @Test
+    void multiply() {
+        assertEquals(8, calculator.multiply(4, 2));
+        assertEquals(-15, calculator.multiply(5, -3));
+        assertEquals(0, calculator.multiply(0, 100));
     }
 
     @Test
     void solver() {
-        Calculator calc = new Calculator();
-        assertEquals(6, calc.solver());
+        assertEquals(5, calculator.solver());
     }
 }

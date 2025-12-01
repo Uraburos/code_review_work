@@ -1,17 +1,24 @@
 public class Calculator {
-    public int add(int a, int b){
+    public int add(int a, int b) {
         return a + b;
     }
-    public int dif(int a, int b){
+
+    public int subtract(int a, int b) {
         return a - b;
     }
-    public int div(int a, int b){
-        return a * b; // Ошибка 2: метод должен делить, а не умножать
+
+    public int divide(int a, int b) {
+        if (b == 0) {
+            throw new ArithmeticException("Division by zero is not allowed");
+        }
+        return a / b;
     }
-    public int times(int a, int b){
+
+    public int multiply(int a, int b) {
         return a * b;
     }
-    public int solver(){
-        return add(1, 2) + dif(5, 3);
+
+    public int solver() {
+        return add(1, 2) + subtract(5, 3);
     }
 }
