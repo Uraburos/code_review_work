@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
@@ -42,5 +43,26 @@ class CalculatorTest {
     @Test
     void solver() {
         assertEquals(5, calculator.solver());
+    }
+
+    @Test
+    void power() {
+        assertEquals(8, calculator.power(2, 3));
+        assertEquals(25, calculator.power(5, 2));
+        assertEquals(1, calculator.power(7, 0));
+        assertEquals(1, calculator.power(1, 5));
+        assertEquals(0, calculator.power(0, 3));
+        assertEquals(1, calculator.power(0, 0));
+    }
+
+    @Test
+    void powerNegativeExponent() {
+
+        Exception exception = assertThrows(IllegalArgumentException.class,
+                () -> calculator.power(2, -1));
+        assertEquals("Exponent must be non-negative", exception.getMessage());
+
+        assertThrows(IllegalArgumentException.class,
+                () -> calculator.power(5, -3));
     }
 }

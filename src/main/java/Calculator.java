@@ -18,6 +18,17 @@ public class Calculator {
         return a * b;
     }
 
+    public int power(int base, int exponent) {
+        if (exponent < 0) {
+            throw new IllegalArgumentException("Exponent must be non-negative");
+        }
+        int result = 1;
+        for (int i = 0; i < exponent; i++) {
+            result *= base;
+        }
+        return result;
+    }
+
     public int solver() {
         return add(1, 2) + subtract(5, 3);
     }

@@ -4,5 +4,5 @@
 ###### main-ветка. 
 
 Выполнил:
-* Faceless Emoji
+* MerkulovAS
 * <Группа>
